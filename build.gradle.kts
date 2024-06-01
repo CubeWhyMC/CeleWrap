@@ -3,13 +3,14 @@ plugins {
 }
 
 group = "org.cubewhy.celestial"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.ow2.asm:asm-tree:9.3")
     testImplementation(kotlin("test"))
 }
 
@@ -21,7 +22,7 @@ tasks.jar {
     manifest {
         attributes(
             "Main-Class" to "org.cubewhy.CeleWrapKt",
-            "Premain-Class" to "org.cubewhy.celestial.AgentKt",
+            "Premain-Class" to "org.cubewhy.CeleAgentKt",
             "Charset" to "UTF-8"
         )
     }

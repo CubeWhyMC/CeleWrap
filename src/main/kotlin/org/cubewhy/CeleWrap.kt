@@ -10,11 +10,11 @@ fun main(args: Array<String>) {
         exitProcess(1)
     }
     println("[CeleWrap] LC Wrapper is working!")
-    println("[CeleWrap]")
     println("[CeleWrap] LC main class: $mainClassName")
     println("[CeleWrap] Current classpath: ${System.getProperty("java.class.path")}")
-    println("[CeleWrap] Getting main function via reflection")
+    println("[CeleWrap] Getting LC entrypoint via reflection")
     val lunarMain = Class.forName(mainClassName)
     val mainFunction = lunarMain.getDeclaredMethod("main", Array<String>::class.java)
+    println("[CeleWrap] LC entrypoint was found!")
     mainFunction.invoke(lunarMain.getConstructor().newInstance(), args)
 }
