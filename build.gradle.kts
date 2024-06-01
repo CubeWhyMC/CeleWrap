@@ -23,7 +23,8 @@ tasks.jar {
         attributes(
             "Main-Class" to "org.cubewhy.CeleWrapKt",
             "Premain-Class" to "org.cubewhy.CeleAgentKt",
-            "Charset" to "UTF-8"
+            "Charset" to "UTF-8",
+            "Can-Redefine-Classes" to "true",
         )
     }
 }
