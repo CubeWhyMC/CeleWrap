@@ -16,6 +16,17 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.jar {
+    manifest {
+        attributes(
+            "Main-Class" to "org.cubewhy.CeleWrapKt",
+            "Premain-Class" to "org.cubewhy.celestial.AgentKt",
+            "Charset" to "UTF-8"
+        )
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 }
