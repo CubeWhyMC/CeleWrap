@@ -3,13 +3,14 @@ plugins {
 }
 
 group = "org.cubewhy.celestial"
-version = "1.1-SNAPSHOT"
+version = "1.1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.javassist:javassist:3.30.2-GA")
     implementation("org.ow2.asm:asm-tree:9.3")
     testImplementation(kotlin("test"))
 }

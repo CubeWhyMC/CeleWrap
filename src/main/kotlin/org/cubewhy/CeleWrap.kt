@@ -1,5 +1,11 @@
 package org.cubewhy
 
+import java.awt.Component
+import javax.swing.JDialog
+import javax.swing.JLabel
+import javax.swing.JOptionPane
+import javax.swing.JScrollPane
+import javax.swing.JTextArea
 import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
@@ -16,5 +22,13 @@ fun main(args: Array<String>) {
     val lunarMain = Class.forName(mainClassName)
     val mainFunction = lunarMain.getDeclaredMethod("main", Array<String>::class.java)
     println("[CeleWrap] LC entrypoint was found!")
-    mainFunction.invoke(lunarMain.getConstructor().newInstance(), args)
+    try {
+        mainFunction.invoke(lunarMain.getConstructor().newInstance(), args)
+    } catch (e: Exception) {
+        println("[CeleWrap] Crash detected!")
+        println("[CeleWrap] This is not a problem about Celestial or CeleWrap, please DO NOT report this on our official GitHub.")
+        val trace = e.stackTraceToString()
+        JOptionPane.showMessageDialog(null, trace, "Crash Detected", JOptionPane.ERROR_MESSAGE)
+        exitProcess(2)
+    }
 }
