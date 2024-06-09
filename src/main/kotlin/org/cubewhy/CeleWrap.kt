@@ -1,11 +1,6 @@
 package org.cubewhy
 
-import java.awt.Component
-import javax.swing.JDialog
-import javax.swing.JLabel
 import javax.swing.JOptionPane
-import javax.swing.JScrollPane
-import javax.swing.JTextArea
 import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
